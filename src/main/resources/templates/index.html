@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sistema de Adopcion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${animal}" class="container my-5">
+               <div class="col-md-10">
+                   <h2 th:case="null">No existe registro</h2>
+                   <div th:case="*">
+                       <table class="table table-striped table-responsive-md">
+                           <thead>
+                           <tr>
+                           <th>ID</th>
+                           <th>Tipo</th>
+                           <th>Raza</th>
+                           <th>Color</th>
+                           <th>Tipo Pelaje</th>
+                           <th>Fecha</th>
+                           <th>Vacunas</th>
+                           <th>Responsable</th>
+                           <th>Status</th>
+                           <th>Imagen</th>
+                           </tr>
+                           </thead>
+                           <tbody>
+                           <tr th:each="anima : ${animal}">
+                               <td th:text="${anima.idAnimal}"></td>
+                               <td th:text="${anima.tipoAnimal}"></td>
+                               <td th:text="${anima.razaAnimal}"></td>
+                               <td th:text="${anima.colorAnimal}"></td>
+                               <td th:text="${anima.pelajeAnimal}"></td>
+                               <td th:text="${anima.fechaNacimientoAnimal}"></td>
+                               <td th:text="${anima.vacunasAnimal}"></td>
+                               <td th:text="${anima.adoptanteAnimal}"></td>
+                               <td th:text="${anima.estadoAnimal}"></td>
+
+                           </tr>
+                           </tbody>
+                       </table>
+
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
