@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dar en adopcion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+</head>
+<body>
+<div class="container my-5">
+    <h3>Dar en adopcion</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/data/save}" th:object="${animal}" method="post" >
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <input type="hidden" th:field="*{idAnimal}">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Tipo de animal</label>
+                            <input type="text" th:field="*{tipoAnimal}" class="form-control"
+                                   id="tipoAnimal" placeholder="Tipo de animal" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Raza del animal</label>
+                            <input type="text" th:field="*{razaAnimal}" class="form-control"
+                                   id="razaAnimal" placeholder="Raza del animal" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Color del animal</label>
+                            <input type="text" th:field="*{colorAnimal}" class="form-control"
+                                   id="colorAnimal" placeholder="Color del animal" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Tipo de pelaje</label>
+                            <input type="text" th:field="*{pelajeAnimal}" class="form-control"
+                                   id="pelajeAnimal" placeholder="Tipo de pelaje" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Fecha de nacimiento del animal</label>
+                            <input type="text" th:field="*{fechaNacimientoAnimal}" class="form-control"
+                                   id="fechaNacimientoAnimal" placeholder="Fecha de nacimiento" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Esta Vacunado</label>
+                            <input type="text" th:field="*{vacunasAnimal}" class="form-control"
+                                   id="vacunasAnimal" placeholder="Esta Vacunado" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Nombre del adoptante</label>
+                            <input type="text" th:field="*{adoptanteAnimal}" class="form-control"
+                                   id="adoptanteAnimal" placeholder="Nombre del adoptante" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Esta adoptado</label>
+                            <input type="text" th:field="*{estadoAnimal}" class="form-control"
+                                   id="estadoAnimal" placeholder="Esta adoptado" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
