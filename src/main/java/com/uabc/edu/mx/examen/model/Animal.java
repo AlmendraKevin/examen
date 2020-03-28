@@ -6,39 +6,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Arrays;
 import java.util.Date;
 
 @Entity
-@Table(name="TABLA_ANIMALES")
+@Table(name="ANIMALES")
 public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAnimal;
 
-    @Column(name = "tipo")
+    @Column(name = "tipo_animal")
     private String tipoAnimal;
 
-    @Column(name = "raza")
+    @Column(name = "raza_animal")
     private String razaAnimal;
 
-    @Column(name = "color")
+    @Column(name = "color_animal")
     private String colorAnimal;
 
-    @Column(name = "t_pelaje")
+    @Column(name = "pelaje_animal")
     private String pelajeAnimal;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_nacimiento")
     private String fechaNacimientoAnimal;
 
-    @Column(name = "vacunas")
-    private String vacunasAnimal;
+    @Column(name = "vacuna_animal")
+    private boolean vacunaAnimal;
 
-    @Column(name = "responsable")
-    private String adoptanteAnimal;
+    @Column(name = "adoptado")
+    private boolean estadoAnimal;
 
-    @Column(name = "estado_adopcion")
-    private String estadoAnimal;
+    @Column(name = "adoptante")
+    private String nombreAdoptante;
+
+    @Column(name = "img")
+    private  byte[] img;
+
+    @Column(name = "str")
+    private String str;
 
     public Long getIdAnimal() {
         return idAnimal;
@@ -88,28 +95,44 @@ public class Animal {
         this.fechaNacimientoAnimal = fechaNacimientoAnimal;
     }
 
-    public String getVacunasAnimal() {
-        return vacunasAnimal;
+    public boolean isVacunaAnimal() {
+        return vacunaAnimal;
     }
 
-    public void setVacunasAnimal(String vacunasAnimal) {
-        this.vacunasAnimal = vacunasAnimal;
+    public void setVacunaAnimal(boolean vacunaAnimal) {
+        this.vacunaAnimal = vacunaAnimal;
     }
 
-    public String getAdoptanteAnimal() {
-        return adoptanteAnimal;
-    }
-
-    public void setAdoptanteAnimal(String adoptanteAnimal) {
-        this.adoptanteAnimal = adoptanteAnimal;
-    }
-
-    public String getEstadoAnimal() {
+    public boolean isEstadoAnimal() {
         return estadoAnimal;
     }
 
-    public void setEstadoAnimal(String estadoAnimal) {
+    public void setEstadoAnimal(boolean estadoAnimal) {
         this.estadoAnimal = estadoAnimal;
+    }
+
+    public String getNombreAdoptante() {
+        return nombreAdoptante;
+    }
+
+    public void setNombreAdoptante(String nombreAdoptante) {
+        this.nombreAdoptante = nombreAdoptante;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+
+    public String getStr() {
+        return str;
+    }
+
+    public void setStr(String str) {
+        this.str = str;
     }
 
     @Override
@@ -120,10 +143,12 @@ public class Animal {
                 ", razaAnimal='" + razaAnimal + '\'' +
                 ", colorAnimal='" + colorAnimal + '\'' +
                 ", pelajeAnimal='" + pelajeAnimal + '\'' +
-                ", fechaNacimientoAnimal=" + fechaNacimientoAnimal +
-                ", vacunasAnimal='" + vacunasAnimal + '\'' +
-                ", adoptanteAnimal='" + adoptanteAnimal + '\'' +
-                ", estadoAnimal='" + estadoAnimal + '\'' +
+                ", fechaNacimientoAnimal='" + fechaNacimientoAnimal + '\'' +
+                ", vacunaAnimal=" + vacunaAnimal +
+                ", estadoAnimal=" + estadoAnimal +
+                ", nombreAdoptante='" + nombreAdoptante + '\'' +
+                ", img=" + Arrays.toString(img) +
+                ", str='" + str + '\'' +
                 '}';
     }
 }
