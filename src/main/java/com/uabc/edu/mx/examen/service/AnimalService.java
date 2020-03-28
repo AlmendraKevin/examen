@@ -55,7 +55,7 @@ public class AnimalService {
                 newAnimal.setEstadoAnimal(a.isEstadoAnimal());
                 newAnimal.setNombreAdoptante(a.getNombreAdoptante());
                 newAnimal.setImg(a.getImg());
-                repository.deleteById(a.getIdAnimal());
+
 
                 newAnimal=repository.save(newAnimal);
                 return newAnimal;
