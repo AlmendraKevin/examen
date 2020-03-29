@@ -6,6 +6,10 @@
     <title>SAAD</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+
+
+    </style>
 </head>
 <body>
 
@@ -54,14 +58,14 @@
                         <td th:text="${ani.idAnimal}"> </td>
                         <td th:text="${ani.tipoAnimal}"> </td>
                         <td th:text="${ani.razaAnimal}"> </td>
-                        <td th:text="${ani.colorAnimal}"> </td>
+                        <td th:bgcolor="${ani.colorAnimal}"></td>
                         <td th:text="${ani.pelajeAnimal}"> </td>
                         <td th:text="${ani.fechaNacimientoAnimal}"> </td>
                         <td th:text="${ani.vacunaAnimal}"> </td>
                         <td th:text="${ani.estadoAnimal}"> </td>
                         <td th:text="${ani.nombreAdoptante}"> </td>
-                        <td>
-                            <img th:src="${'data:image/png;base64' +ani.str}" style="width: 100%;max-width: 80px"/>
+                        <td class="container-2">
+                            <img th:src="${'data:image/png;base64,' +ani.str}" style="width: 100%;max-width: 80px"/>
                         </td>
                         <td>
                             <a th:href="@{/control/update/{id}(id=${ani.idAnimal})}" class="btn btn-secondary">

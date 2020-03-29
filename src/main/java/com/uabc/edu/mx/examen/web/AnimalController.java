@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -62,6 +64,7 @@ public class AnimalController {
                                      @RequestParam(value = "img", required = false) MultipartFile img) {
 
         Animal entity;
+
         if (id.isPresent()) {
             entity = service.getAnimalById(id.get());
         } else{
@@ -75,11 +78,13 @@ public class AnimalController {
         entity.setVacunaAnimal(vacunado);
         entity.setEstadoAnimal(adoptado);
         entity.setNombreAdoptante(responsable);
+
         try {
             entity.setImg(img.getBytes()); //MultipartFile to byte[] and stored as longblob
         } catch (Exception e) {
-            System.out.println("SAVE ANIMAL ERROR: >>> " + e); //conversion failed
+            System.out.println("Fallo la conversion " + e); //conversion failed
         }
+        entity.setStr(Base64.getEncoder().encodeToString(entity.getImg()));
         service.saveAnimal(entity); //SAVE OR UPDATE SERVICE
         return "redirect:/control";
     }
