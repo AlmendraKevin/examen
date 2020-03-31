@@ -15,7 +15,7 @@ public class AnimalService {
     @Autowired
     AnimalRepository repository;
 
-
+//hola 
     public List<Animal> getAnimals(){
         return (List<Animal>) repository.findAll();
     }
