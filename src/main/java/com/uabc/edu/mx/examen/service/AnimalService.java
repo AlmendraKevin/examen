@@ -15,19 +15,12 @@ public class AnimalService {
     @Autowired
     AnimalRepository repository;
 
-    /**
-     * Regresa todos los animales
-     * @return list
-     */
+
     public List<Animal> getAnimals(){
         return (List<Animal>) repository.findAll();
     }
 
-    /**
-     * Regresa la entidad animal proporcionando un id
-     * @param id
-     * @return
-     */
+
 
     public Animal getAnimalById(Long id){
         Optional<Animal> animal = repository.findById(id);

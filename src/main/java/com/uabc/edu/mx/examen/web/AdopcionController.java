@@ -5,50 +5,44 @@ import com.uabc.edu.mx.examen.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+
 @Controller
-@RequestMapping("/control")
-public class AnimalController {
+@RequestMapping("/adoptar")
+public class AdopcionController {
 
     @Autowired
     private AnimalService service;
 
-    @RequestMapping //class no path + method no path  = home index
-    public String getAnimals(Model model) { //adds the model to load atributes in the html template
+    @RequestMapping
+    public String adoptar(Model model){
         List<Animal> animal = service.getAnimals();
-        model.addAttribute("animal", animal);
-        return "search";
+        List<Animal> animalAux = new ArrayList<Animal>();
+        animal.forEach(animal1 -> {
+            if(!animal1.isEstadoAnimal()){
+                animalAux.add(animal1);
+            }
+        });
 
+        model.addAttribute("animal", animalAux);
+        return "adopcion";
     }
-
-    @RequestMapping("/new") //displays empty form
-    public String getAdmin(Model model) {// model to hold data on the frontend
-        model.addAttribute("animal", new Animal());
-        return "formCreate";
-    }
-    @RequestMapping("/up")
-    public String update(){
-       return "formCreate";
-    }
-
-    @RequestMapping(path = { "/update/{id}" })
+    @RequestMapping(path = { "/adopcion/{id}" })
     public String editAnimalById(Model model, @PathVariable(value = "id", required = true) Long id) {
         Animal animal = service.getAnimalById(id);
         model.addAttribute("animal", animal);
-        return "formCreate";
+        return "adopcionFormato";
     }
-
-    @GetMapping("/delete/{id}")
-    public String deleteAnimal(@PathVariable("id") Long id) {
-        service.deleteAnimal(id);
-        return "redirect:/control";
-    }
-    @RequestMapping(path = "/saveAnimal", method = RequestMethod.POST)
+    @RequestMapping(path = "/adoptarAnimal", method = RequestMethod.POST)
     public String saveOrUpdateAnimal(@RequestParam(value = "idAnimal", required = false) Optional<Long> id,
                                      @RequestParam(value = "tipoAnimal", required = true) String tipo,
                                      @RequestParam(value = "razaAnimal", required = true) String raza,
@@ -73,21 +67,13 @@ public class AnimalController {
         entity.setPelajeAnimal(pelaje);
         entity.setFechaNacimientoAnimal(fecha);
         entity.setVacunaAnimal(vacunado);
-        entity.setEstadoAnimal(adoptado);
+        entity.setEstadoAnimal(true);
         entity.setNombreAdoptante(responsable);
-
-        try {
-            entity.setImg(img.getBytes()); //MultipartFile to byte[] and stored as longblob
-        } catch (Exception e) {
-            System.out.println("Fallo la conversion " + e); //conversion failed
-        }
-        entity.setStr(Base64.getEncoder().encodeToString(entity.getImg()));
+        entity.setImg(entity.getImg());
+        entity.setStr(entity.getStr());
         service.saveAnimal(entity); //SAVE OR UPDATE SERVICE
-        return "redirect:/control";
+        return "redirect:/";
     }
-
-
-
 
 
 }

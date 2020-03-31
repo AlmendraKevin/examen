@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+</head>
+<body>
+<div class="container my-5">
+    <h3>Registro animal</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form id="form" action="#" th:action="@{/adoptar/adoptarAnimal}" th:object="${animal}" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <input type="hidden" id="id" th:field="*{idAnimal}">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="hidden"  th:field="*{tipoAnimal}">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="hidden" th:field="*{razaAnimal}" class="form-control"
+                                   id="raza" placeholder="Raza del animal" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="hidden" th:field="*{pelajeAnimal}" class="form-control"
+                                   id="pelaje" placeholder="Tipo de pelaje" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="hidden" th:field="*{fechaNacimientoAnimal}" class="form-control"
+                                   id="fecha" placeholder="Fecha de nacimiento" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label> Tiene todas sus vacunas? </label>
+                            <input type="hidden" th:field="*{vacunaAnimal}" class="form-control"
+                                   id="vac"/>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label class="col-form-label">Esta adoptado?</label>
+                            <input type="hidden" th:field="*{estadoAnimal}" class="form-control"
+                                   id="adop"/>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label class="col-form-label">Responsable</label>
+                            <input type="text" th:field="*{nombreAdoptante}" class="form-control"
+                                   id="resp" placeholder="Nombre Completo del adoptante" />
+                        </div>
+                        <div>
+                            <label>Cual es su color</label>
+                            <input th:field="*{colorAnimal}" name="color" type="hidden" placeholder="color">
+                            <span class="container" id="color"></span>
+                            <div class="form-group col-md-8">
+                                <label>Foto</label>
+                                <input type="hidden" id="img" name="img" accept=".png,.jpg,.jpeg" th:field="*{img}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value="Registrar ">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
