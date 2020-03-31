@@ -36,12 +36,10 @@
                                    id="fecha" placeholder="Fecha de nacimiento" />
                         </div>
                         <div class="form-group col-md-8">
-                            <label> Tiene todas sus vacunas? </label>
                             <input type="hidden" th:field="*{vacunaAnimal}" class="form-control"
                                    id="vac"/>
                         </div>
                         <div class="form-group col-md-8">
-                            <label class="col-form-label">Esta adoptado?</label>
                             <input type="hidden" th:field="*{estadoAnimal}" class="form-control"
                                    id="adop"/>
                         </div>
@@ -51,11 +49,9 @@
                                    id="resp" placeholder="Nombre Completo del adoptante" />
                         </div>
                         <div>
-                            <label>Cual es su color</label>
                             <input th:field="*{colorAnimal}" name="color" type="hidden" placeholder="color">
                             <span class="container" id="color"></span>
                             <div class="form-group col-md-8">
-                                <label>Foto</label>
                                 <input type="hidden" id="img" name="img" accept=".png,.jpg,.jpeg" th:field="*{img}">
                             </div>
                         </div>
