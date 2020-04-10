@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Login SAAD</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-	
+
     <style type="text/css">
         body,
     html {
@@ -78,7 +78,7 @@
     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
         background-color: #34A234 !important;
     }
-    
+
     /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 section {
@@ -157,50 +157,38 @@ section .section-title {
     </style>
 </head>
 <body>
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<img src="/l2.jpeg" class="brand_logo" alt="Logo">
-					</div>
+<div>
+	<a  href="/">Inicio</a>
+</div>
+<div class="container h-100">
+	<div class="d-flex justify-content-center h-100">
+		<div class="user_card">
+			<div class="d-flex justify-content-center">
+				<div class="brand_logo_container">
+					<img src="/l2.jpeg" class="brand_logo" alt="Logo">
 				</div>
-				<div class="d-flex justify-content-center form_container">
-					<div th:if="${param.error}">
-						Invalid username and password.
-					</div>
-					<div th:if="${param.logout}">
-						You have been logged out.
-					</div>
-            <form th:action="@{/login}" method='POST'>LOGIN
- 
-				     <div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"></span>
-                            </div> 	  
-                            <input type="text" placeholder="Usuario" class="form-control input_user" id="username">
-                     </div>
-                 
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"></span>
-							</div> 			 
-                             <input type="password" placeholder="Contraseña" class="form-control input_pass" id="userpass">
-                        </div>                         
-						<div class="d-flex justify-content-center mt-3 login_container">
-				 	<button type="submit" name="button" class="btn login_btn" value="Save">Iniciar Sesión</button>
-                   </div> 
-            </form>
-                    
-            
-
+			</div>
+			<div class="d-flex justify-content-center form_container">
+				<div th:if="${param.error}">
+					Usuario o cantraseña no validos
 				</div>
+				<div th:if="${param.logout}">
+					Usted se ha desconectado
+				</div>
+				<form th:action="@{/login}" method="post">
+					<div><label> Usuario : <input type="text" name="username"/> </label></div>
+					<div><label> Contraseña: <input type="password" name="password"/> </label></div>
+					<div><input type="submit" value="Iniciar Sesion"/></div>
+				</form>
 			</div>
 		</div>
 	</div>
-    <script src="/js/jquery-3.2.1.min.js"></script>
+</div>
 
-    <script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 </body>
+
+
 
 </html>

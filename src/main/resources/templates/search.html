@@ -26,7 +26,11 @@
                     <li class="nav-item active">
                         <a href="/control/new" class="nav-link">Registrar <span class="sr-only">(Actual)</span></a>
                     </li>
-
+                    <li class="nav-item">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar Sesion"/>
+                        </form>
+                    </li>
 
                 </ul>
             </div>
