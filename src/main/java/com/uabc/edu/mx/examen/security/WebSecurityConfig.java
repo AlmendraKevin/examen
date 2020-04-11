@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
 
                 .authorizeRequests()
-                    .antMatchers("/","/adoptar","/css/**","/js/**").permitAll()
+                    .antMatchers("/","/adoptar","/adoptar/adopcion/{id}","/adoptar/adoptarAnimal","/css/**","/js/**").permitAll()
                     .antMatchers("/*.png","/*.jpg","/*.jpeg").permitAll()
                     .anyRequest().authenticated()
                     .and()
