@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("saaaad.herokuapp.com/")
 public class MainController {
 
     private AnimalService service;
