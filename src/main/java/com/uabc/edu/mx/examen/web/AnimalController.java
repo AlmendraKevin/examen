@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+
 @Controller
 @RequestMapping("/control")
 public class AnimalController {
@@ -31,12 +32,13 @@ public class AnimalController {
         model.addAttribute("animal", new Animal());
         return "formCreate";
     }
+
     @RequestMapping("/up")
-    public String update(){
-       return "formCreate";
+    public String update() {
+        return "formCreate";
     }
 
-    @RequestMapping(path = { "/update/{id}" })
+    @RequestMapping(path = {"/update/{id}"})
     public String editAnimalById(Model model, @PathVariable(value = "id", required = true) Long id) {
         Animal animal = service.getAnimalById(id);
         model.addAttribute("animal", animal);
@@ -48,6 +50,7 @@ public class AnimalController {
         service.deleteAnimal(id);
         return "redirect:/control";
     }
+
     @RequestMapping(path = "/saveAnimal", method = RequestMethod.POST)
     public String saveOrUpdateAnimal(@RequestParam(value = "idAnimal", required = false) Optional<Long> id,
                                      @RequestParam(value = "tipoAnimal", required = true) String tipo,
@@ -64,7 +67,7 @@ public class AnimalController {
 
         if (id.isPresent()) {
             entity = service.getAnimalById(id.get());
-        } else{
+        } else {
             entity = new Animal(); //empty entity
         }
         entity.setTipoAnimal(tipo);
@@ -85,9 +88,6 @@ public class AnimalController {
         service.saveAnimal(entity); //SAVE OR UPDATE SERVICE
         return "redirect:/control";
     }
-
-
-
 
 
 }

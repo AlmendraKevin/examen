@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 @Entity
-@Table(name="ANIMALES")
+@Table(name = "ANIMALES")
 public class Animal {
 
     @Id
@@ -42,7 +42,7 @@ public class Animal {
     private String nombreAdoptante;
 
     @Column(name = "img")
-    private  byte[] img;
+    private byte[] img;
 
     @Column(name = "str")
     private String str;

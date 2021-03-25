@@ -24,11 +24,11 @@ public class AdopcionController {
     private AnimalService service;
 
     @RequestMapping
-    public String adoptar(Model model){
+    public String adoptar(Model model) {
         List<Animal> animal = service.getAnimals();
         List<Animal> animalAux = new ArrayList<Animal>();
         animal.forEach(animal1 -> {
-            if(!animal1.isEstadoAnimal()){
+            if (!animal1.isEstadoAnimal()) {
                 animalAux.add(animal1);
             }
         });
@@ -36,12 +36,14 @@ public class AdopcionController {
         model.addAttribute("animal", animalAux);
         return "adopcion";
     }
-    @RequestMapping(path = { "/adopcion/{id}" })
+
+    @RequestMapping(path = {"/adopcion/{id}"})
     public String editAnimalById(Model model, @PathVariable(value = "id", required = true) Long id) {
         Animal animal = service.getAnimalById(id);
         model.addAttribute("animal", animal);
         return "adopcionFormato";
     }
+
     @RequestMapping(path = "/adoptarAnimal", method = RequestMethod.POST)
     public String saveOrUpdateAnimal(@RequestParam(value = "idAnimal", required = false) Optional<Long> id,
                                      @RequestParam(value = "tipoAnimal", required = true) String tipo,
@@ -58,7 +60,7 @@ public class AdopcionController {
 
         if (id.isPresent()) {
             entity = service.getAnimalById(id.get());
-        } else{
+        } else {
             entity = new Animal(); //empty entity
         }
         entity.setTipoAnimal(tipo);

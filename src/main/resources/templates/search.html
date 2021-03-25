@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SAAD</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
 
@@ -13,12 +14,13 @@
 </head>
 <body style="background-color: #abab9a">
 
-    <div class="container-12">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
+<div class="container-12">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
             <!-- Para poner un icono al menu-->
             <a href="/" class="navbar-brand">Inicio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar">
@@ -34,67 +36,67 @@
 
                 </ul>
             </div>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <table class="table table-sm table-hover table-bordered table-responsive-lg">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>TIPO</th>
-                            <th>RAZA</th>
-                            <th>COLOR</th>
-                            <th>PELAJE</th>
-                            <th>FECHA</th>
-                            <th>VACUNAS</th>
-                            <th>ADOPTADO</th>
-                            <th>ADOPTANTE</th>
-                            <th>IMAGEN</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="ani : ${animal}">
-                        <td th:text="${ani.idAnimal}"> </td>
-                        <td th:text="${ani.tipoAnimal}"> </td>
-                        <td th:text="${ani.razaAnimal}"> </td>
-                        <td th:bgcolor="${ani.colorAnimal}"></td>
-                        <td th:text="${ani.pelajeAnimal}"> </td>
-                        <td th:text="${ani.fechaNacimientoAnimal}"> </td>
-                        <td th:text="${ani.vacunaAnimal}"> </td>
-                        <td th:text="${ani.estadoAnimal}"> </td>
-                        <td th:text="${ani.nombreAdoptante}"> </td>
-                        <td class="container-2">
-                            <img th:src="${'data:image/png;base64,' +ani.str}" style="width: 100%;max-width: 80px"/>
-                        </td>
-                        <td>
-                            <a th:href="@{/control/update/{id}(id=${ani.idAnimal})}" class="btn btn-secondary">
-                                Editar
-                            </a>
-                        </td>
-                        <td>
-                            <a th:href="@{control/delete/{id}(id=${ani.idAnimal})}"  class="btn btn-secondary">
-                                Eliminar
-                            </a>
-                        </td>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table table-sm table-hover table-bordered table-responsive-lg">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TIPO</th>
+                    <th>RAZA</th>
+                    <th>COLOR</th>
+                    <th>PELAJE</th>
+                    <th>FECHA</th>
+                    <th>VACUNAS</th>
+                    <th>ADOPTADO</th>
+                    <th>ADOPTANTE</th>
+                    <th>IMAGEN</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ani : ${animal}">
+                    <td th:text="${ani.idAnimal}"></td>
+                    <td th:text="${ani.tipoAnimal}"></td>
+                    <td th:text="${ani.razaAnimal}"></td>
+                    <td th:bgcolor="${ani.colorAnimal}"></td>
+                    <td th:text="${ani.pelajeAnimal}"></td>
+                    <td th:text="${ani.fechaNacimientoAnimal}"></td>
+                    <td th:text="${ani.vacunaAnimal}"></td>
+                    <td th:text="${ani.estadoAnimal}"></td>
+                    <td th:text="${ani.nombreAdoptante}"></td>
+                    <td class="container-2">
+                        <img th:src="${'data:image/png;base64,' +ani.str}" style="width: 100%;max-width: 80px"/>
+                    </td>
+                    <td>
+                        <a th:href="@{/control/update/{id}(id=${ani.idAnimal})}" class="btn btn-secondary">
+                            Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a th:href="@{control/delete/{id}(id=${ani.idAnimal})}" class="btn btn-secondary">
+                            Eliminar
+                        </a>
+                    </td>
 
 
-                    </tr>
-                    </tbody>
+                </tr>
+                </tbody>
 
-                </table>
+            </table>
 
-            </div>
         </div>
     </div>
+</div>
 
 
-    <script src="/js/jquery-3.2.1.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

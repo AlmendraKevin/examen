@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SAAD</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
 
@@ -18,7 +19,8 @@
         <div class="container">
             <!-- Para poner un icono al menu-->
             <a href="/" class="navbar-brand">Inicio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
@@ -45,12 +47,12 @@
                 </thead>
                 <tbody>
                 <tr th:each="ani : ${animal}">
-                    <td th:text="${ani.tipoAnimal}"> </td>
-                    <td th:text="${ani.razaAnimal}"> </td>
+                    <td th:text="${ani.tipoAnimal}"></td>
+                    <td th:text="${ani.razaAnimal}"></td>
                     <td th:bgcolor="${ani.colorAnimal}"></td>
-                    <td th:text="${ani.pelajeAnimal}"> </td>
-                    <td th:text="${ani.fechaNacimientoAnimal}"> </td>
-                    <td th:text="${ani.vacunaAnimal}"> </td>
+                    <td th:text="${ani.pelajeAnimal}"></td>
+                    <td th:text="${ani.fechaNacimientoAnimal}"></td>
+                    <td th:text="${ani.vacunaAnimal}"></td>
                     <td class="container-2">
                         <img th:src="${'data:image/png;base64,' +ani.str}" style="width: 100%;max-width: 80px"/>
                     </td>

@@ -15,30 +15,31 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-10">
-                <form id="form" action="#" th:action="@{/adoptar/adoptarAnimal}" th:object="${animal}" method="post" enctype="multipart/form-data">
+                <form id="form" action="#" th:action="@{/adoptar/adoptarAnimal}" th:object="${animal}" method="post"
+                      enctype="multipart/form-data">
                     <div class="row">
                         <div class="form-group col-md-8">
                             <label class="col-form-label">Responsable</label>
                             <input type="text" th:field="*{nombreAdoptante}" class="form-control"
-                                   id="resp" placeholder="Nombre Completo del adoptante" />
+                                   id="resp" placeholder="Nombre Completo del adoptante"/>
                         </div>
                         <div class="form-group col-md-8">
                             <input type="hidden" id="id" th:field="*{idAnimal}">
                         </div>
                         <div class="form-group col-md-8">
-                            <input type="hidden"  th:field="*{tipoAnimal}">
+                            <input type="hidden" th:field="*{tipoAnimal}">
                         </div>
                         <div class="form-group col-md-8">
                             <input type="hidden" th:field="*{razaAnimal}" class="form-control"
-                                   id="raza" placeholder="Raza del animal" />
+                                   id="raza" placeholder="Raza del animal"/>
                         </div>
                         <div class="form-group col-md-8">
                             <input type="hidden" th:field="*{pelajeAnimal}" class="form-control"
-                                   id="pelaje" placeholder="Tipo de pelaje" />
+                                   id="pelaje" placeholder="Tipo de pelaje"/>
                         </div>
                         <div class="form-group col-md-8">
                             <input type="hidden" th:field="*{fechaNacimientoAnimal}" class="form-control"
-                                   id="fecha" placeholder="Fecha de nacimiento" />
+                                   id="fecha" placeholder="Fecha de nacimiento"/>
                         </div>
                         <div class="form-group col-md-8">
                             <input type="hidden" th:field="*{vacunaAnimal}" class="form-control"

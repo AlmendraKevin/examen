@@ -17,37 +17,36 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-
     @Autowired
     UserDetailsService userDetailsService;
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
         http
 
                 .authorizeRequests()
-                    .antMatchers("/","/adoptar","/adoptar/adopcion/{id}","/adoptar/adoptarAnimal","/css/**","/js/**").permitAll()
-                    .antMatchers("/*.png","/*.jpg","/*.jpeg").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers("/", "/adoptar", "/adoptar/adopcion/{id}", "/adoptar/adoptarAnimal", "/css/**", "/js/**").permitAll()
+                .antMatchers("/*.png", "/*.jpg", "/*.jpeg").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
+                .loginPage("/login")
+                .permitAll()
+                .and()
                 .logout()
-                    .permitAll();
+                .permitAll();
 
 
     }
 
 
     @Bean
-    public PasswordEncoder getPasswordEncoder(){
+    public PasswordEncoder getPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 

@@ -15,27 +15,26 @@ public class AnimalService {
     @Autowired
     AnimalRepository repository;
 
-    public List<Animal> getAnimals(){
+    public List<Animal> getAnimals() {
         return (List<Animal>) repository.findAll();
     }
 
 
-
-    public Animal getAnimalById(Long id){
+    public Animal getAnimalById(Long id) {
         Optional<Animal> animal = repository.findById(id);
-        if (animal.isPresent()){
+        if (animal.isPresent()) {
             return repository.findById(id).get();
         }
         return animal.get();
     }
 
-    public Animal saveAnimal(Animal a){
-        if (a.getIdAnimal()==null){
+    public Animal saveAnimal(Animal a) {
+        if (a.getIdAnimal() == null) {
             a = repository.save(a);
             return a;
-        }else{
+        } else {
             Optional<Animal> animal = repository.findById(a.getIdAnimal());
-            if(animal.isPresent()){
+            if (animal.isPresent()) {
                 Animal newAnimal = animal.get();
                 newAnimal.setIdAnimal(a.getIdAnimal());
                 newAnimal.setTipoAnimal(a.getTipoAnimal());
@@ -49,19 +48,19 @@ public class AnimalService {
                 newAnimal.setImg(a.getImg());
 
 
-                newAnimal=repository.save(newAnimal);
+                newAnimal = repository.save(newAnimal);
                 return newAnimal;
-            }else {
+            } else {
                 a = repository.save(a);
                 return a;
             }
         }
     }
 
-    public void deleteAnimal(Long id){
-        Optional<Animal> animal =repository.findById(id);
-        if(animal.isPresent()){
-          repository.deleteById(id);
+    public void deleteAnimal(Long id) {
+        Optional<Animal> animal = repository.findById(id);
+        if (animal.isPresent()) {
+            repository.deleteById(id);
         }
     }
 

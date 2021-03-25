@@ -15,13 +15,14 @@ import java.util.List;
 public class MainController {
 
     private AnimalService service;
+
     @RequestMapping
-    public String home(){
+    public String home() {
         return "home";
     }
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
